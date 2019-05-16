@@ -1,4 +1,4 @@
-# Laravel homestead-docker
+# homestead-docker NGINX (ssl-letsencrypt)
 Create a homestead docker container for your development env.
 (Adapted from laravel homestead provisionning script)
 
@@ -63,3 +63,11 @@ DB_PORT=3306
 DB_USERNAME=root
 DB_PASSWORD=
 ```
+
+### OBS: 
+In container execute:
+
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt update
+sudo apt install python-certbot-nginx
+sudo certbot --nginx -d example.com
