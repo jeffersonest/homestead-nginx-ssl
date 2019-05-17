@@ -65,9 +65,41 @@ DB_PASSWORD=
 ```
 
 ### OBS: 
-In container execute:
+In container execute to install certbot:
 
+```shell
 sudo add-apt-repository ppa:certbot/certbot
 sudo apt update
 sudo apt install python-certbot-nginx
 sudo certbot --nginx -d example.com
+```
+
+## For Laravel storage write error:
+
+Never set a directory to 777. you should change directory ownership. so set your current user that you are logged in with as owner and the webserver user (www-data, apache, ...) as the group. You can try this:
+
+```shell
+sudo chown -R $USER:www-data storage
+sudo chown -R $USER:www-data bootstrap/cache
+```
+
+then to set directory permission try this:
+
+```shell
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+```
+
+Update:
+
+Webserver user and group depend on your webserver and your OS. to figure out what's your web server user and group use the following commands. for nginx use:
+
+```shell
+ps aux|grep nginx|grep -v grep
+```
+
+for apache use:
+
+```shell
+ps aux | egrep '(apache|httpd)'
+```
