@@ -8,9 +8,11 @@ please refer to these tutorials:
 ```shell
 curl -sSL https://get.docker.com/ | sh
 ```
-* install docker compose (https://docs.docker.com/compose/install/)
+* install docker compose (https://docs.docker.com/compose/install/) 
+* Check the ``` <RELEASE> ``` ex: 1.24.1 (https://github.com/docker/compose/releases) 
+
 ```shell
-sudo curl -L https://github.com/docker/compose/releases/download/1.17.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/<RELEASE>/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
